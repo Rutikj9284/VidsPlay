@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "dev": "vite",
-    "build": "npm i"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "vite build"
   },
   "dependencies": {
+    "vite": "^2.7.10",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
