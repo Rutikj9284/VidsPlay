@@ -13,12 +13,19 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
+const corsOptions = {
+    origin: 'https://6572b45dfc89904a63c12e59--snazzy-halva-2ad475.netlify.app',
+    credentials: true,  // Include credentials in CORS request (if needed)
+  };
+  
+  app.use(cors(corsOptions));
 app.use(
   cors({
     credentials: true,
     origin: process.env.ORIGIN_URL,
   })
 );
+
 
 const jwtSecret = process.env.JWT_SECRET;
 //geneating salt to hash the password
