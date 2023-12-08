@@ -13,12 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
-const corsOptions = {
-    origin: 'https://6572b45dfc89904a63c12e59--snazzy-halva-2ad475.netlify.app',
-    credentials: true,  // Include credentials in CORS request (if needed)
-  };
-  
-  app.use(cors(corsOptions));
+app.use(cors({ origin: 'https://6572b06691acff4856ca0677--snazzy-halva-2ad475.netlify.app' }));
 app.use(
   cors({
     credentials: true,
