@@ -21,16 +21,17 @@ function LoginAndRegister() {
     // console.log("Operating System:", osInfo.family, osInfo.version);
 
     //Device type
-    const windowWidth = window.innerHeight;
-    // console.log(windowWidth);
-    let deviceType;
-    if (windowWidth >= 768) {
-      deviceType = "Desktop";
-    } else if (windowWidth > 480 && windowWidth < 768) {
-      deviceType = "Tablet";
-    } else {
-      deviceType = "Mobile";
-    }
+    const windowWidth = window.innerWidth; // Use innerWidth instead of innerHeight for window width
+// console.log(windowWidth);
+let deviceType;
+if (windowWidth >= 768) {
+  deviceType = "Desktop";
+} else if (windowWidth >= 480 && windowWidth < 768) {
+  deviceType = "Tablet";
+} else {
+  deviceType = "Mobile";
+}
+
     const { data } = await axios.post(url, { username, password, browser:browserInfo.browser.name, OS: osInfo.family, deviceType});
     //after posting user typed data through JWT we can sign in
     //now see context
