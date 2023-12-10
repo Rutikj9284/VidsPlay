@@ -7,13 +7,13 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const _ = require("lodash");
 const User = require("./Models/User");
-
+const PORT = ORIGIN_URL || 4040;
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
-app.use(cors({ origin: 'https://6572b06691acff4856ca0677--snazzy-halva-2ad475.netlify.app' }));
+app.use(cors({ origin: 'https://6572b06691acff4856ca0677--snazzy-halva-2ad475.netlify.app/' }));
 app.use(
   cors({
     credentials: true,
@@ -134,4 +134,4 @@ app.post("/register", async (req, res) => {
   }
 });
 
-const server = app.listen(4040);
+const server = app.listen(PORT);
