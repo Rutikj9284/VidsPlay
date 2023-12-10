@@ -21,7 +21,7 @@ app.use(cors(
 }
 ));
 
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = "hdfhsdhfksdkfnksdnfknf";
 //geneating salt to hash the password
 const bcryptSalt = bcrypt.genSaltSync(10);
 
