@@ -26,7 +26,7 @@ const jwtSecret = process.env.JWT_SECRET;
 const bcryptSalt = bcrypt.genSaltSync(10);
 
 //connect to mongoose
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect("mongodb+srv://jaybhayerutik2:S8org2gDgqvIod66@cluster0.zr5qyx9.mongodb.net/vidsPlay?retryWrites=true&w=majority");
 
 app.get("/", (req, res) => {
   res.json("Working");
