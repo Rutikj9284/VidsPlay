@@ -13,14 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
-app.use(cors({ origin: 'https://65755354ce77756b54db559b--charming-concha-b4f7b0.netlify.app/' }));
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.ORIGIN_URL,
-  })
-);
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+app.use(cors({ origin: '*' }));
 
 const jwtSecret = process.env.JWT_SECRET;
 //geneating salt to hash the password
@@ -44,9 +43,9 @@ app.get('/userProfile', async (req, res) => {
         const userData = await User.find({ username: new RegExp(`^${username}`, 'i') });
 
   
-      if (!userData) {
-        return res.status(404).json({ error: 'User not found' });
-      }
+      if (!userData || userData.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }  
       res.json(userData);
     } catch (error) {
       console.error('Error fetching user data:', error);
