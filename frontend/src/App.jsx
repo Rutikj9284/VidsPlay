@@ -4,7 +4,8 @@ import {UserContextProvider } from './UserContext';
 import Routes from './Routes';
 
 function App() {
-  axios.defaults.baseURL = "https://vidsplay8.onrender.com";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://vidsplay8.onrender.com";
+  axios.defaults.baseURL = backendUrl;
   axios.defaults.withCredentials = true;
   return (
       <UserContextProvider>
