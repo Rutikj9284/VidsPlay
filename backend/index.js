@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const _ = require("lodash");
 const User = require("./Models/User");
-const PORT = ORIGIN_URL || 4040;
+const PORT = process.env.PORT || 4040;
 const app = express();
 
 app.use(express.json());
